@@ -8,195 +8,196 @@ permalink: /card.html
     <meta http-equiv="X-UA-Compatible" content="IE=9; IE=8; IE=7; IE=EDGE" />
   <head>
     <style>
-      * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-}
+    @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 
+
+html {
+  height: 100%;
+  overflow: hidden;
+  background: hsl(0,0%,95%);
+}
 body {
-    font-family: "Poppins", sans-serif;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f1f1f1;
-    perspective: 1000px;
+  font-family: 'Staatliches', cursive;
+  margin: 0;  
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  color: black;
+  text-decoration: none;
 }
 
-.cardContainer {
-    position: relative;
-    width: auto;
-    padding: 30px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+#home {
+  width: 100vw; 
+  height: 100vh;
+  display: grid;
+  place-items: center;
 }
-.cardContainer .cardBox {
-    transform-style: preserve-3d;
-    position: relative;
-    width: 100%;
-    max-width: 450px;
-    border-radius: 12px;
-    background-color: #fff;
-    box-shadow: 0 20px 30px rgba(51, 51, 51, 0.171);
-    padding: 30px 40px 35px;
+.wrapper {
+  
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  width: 900px;
+  height: 450px;
+  
+  background: hsl(0,0%,95%);
+  box-shadow: 1px 1px 25px 3px rgba(0,0,0,.3); 
 }
 
-.cardContainer .cardBox .cardHeader {
-    position: relative;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    margin-bottom: 30px;
-    height: 250px;
-    align-items: center;
+/*************/
+.nav {
+  position: relative;
+  left: 2%;
+  height: 10%;
+  width: max-content;
+  padding-bottom: 1em;
 }
-.cardContainer .cardBox .cardHeader img {
-    z-index: 2;
-    position: relative;
-    max-width: 300px;
-    width: 100%;
-    transition: all 0.75s ease-out;
+.navbar {
+  padding-top: 2%;
 }
-.cardContainer .cardBox .cardHeader .circle {
-    position: absolute;
-    width: 220px;
-    height: 220px;
-    border-radius: 50%;
-    background: linear-gradient(
-        to right,
-        rgba(245, 70, 66, 0.75),
-        rgba(8, 83, 156, 0.75)
-    );
-    z-index: 0;
+.navbar li {
+  position: relative;
+  list-style: none;
+  display:inline;
+  margin-right: 1vw;
+  
+  font-size: 1.225rem;
 }
-
-.cardContainer .cardBox .cardDetails {
-    position: relative;
-    width: 100%;
+.navbar li::after {
+  content:"";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  
+  width: 100%;
+  height: 2px;
+  
+  background: black;
+  
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 250ms ease;
 }
-.cardContainer .cardBox .cardDetails h1 {
-    margin-bottom: 10px;
-    font-size: 40px;
-    transition: all 0.75s ease-out;
-}
-.cardContainer .cardBox .cardDetails p {
-    font-size: 18px;
-    text-transform: uppercase;
-    margin-bottom: 30px;
-    color: #585858;
-    font-weight: 300;
-    transition: all 0.75s ease-out;
-}
-.cardContainer .cardBox .cardDetails .sizes {
-    position: relative;
-    width: 100%;
-    display: flex;
-    list-style: none;
-    justify-content: space-between;
-    margin-bottom: 50px;
-    transition: all 0.75s ease-out;
-}
-.cardContainer .cardBox .cardDetails .sizes li {
-    position: relative;
-    height: 40px;
-    line-height: 40px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-    width: 100%;
-    margin: 0 15px 0 0;
-    text-align: center;
-    cursor: pointer;
-    transition: all 0.3s ease-in;
-}
-.cardContainer .cardBox .cardDetails .sizes li:last-child {
-    margin-right: 0;
-}
-.cardContainer .cardBox .cardDetails .sizes li.selected {
-    background-color: #333;
-    border-color: #333;
-    color: #fff;
-    box-shadow: 0 20px 30px rgba(51, 51, 51, 0.171);
-}
-.cardContainer .cardBox .cardDetails .sizes li:hover {
-    background-color: #f54642;
-    border-color: #f54642;
-    color: #fff;
+.navbar li:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+  
+  box-shadow: 0px 4px 5px 2px rgba(0,0,0,.1);
 }
 
-.cardContainer .cardBox .cardFooter {
-    position: relative;
-    width: 100%;
+
+/*************/
+.header{
+  width: max-content;
+  font-size: 2.875rem;
+
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px #222222;
+  
 }
-.cardContainer .cardBox .cardFooter a {
-    height: 55px;
-    border-radius: 50px;
-    background-color: #f54642;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-    transition: all 0.5s ease-in-out;
-    text-decoration: none;
+.header::after {
+  content:'';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 5%;
+  
+  background: black;
 }
-.cardContainer .cardBox .cardFooter a:hover {
-    background-color: #333;
-    box-shadow: 0 10px 30px rgba(51, 51, 51, 0.171);
+
+
+/*************/
+.content-splitter {
+  display: flex;
+  flex-direction: column;
+  gap: 2em;
+}
+.left {
+  display: flex;
+  flex-direction: column;
+  gap: 4em;
+  padding: 0 3em;
+  width: minmax(80px, 80%);
+}
+.block { 
+  display: flex;
+  flex-direction: column;
+  gap: .75em;
+}
+.content {
+  font-size: 1.5em;
+  color: #404040;
+}
+
+.c2a {
+  font-size: 1.6em;
+  color: white;
+  padding: .4em .8em;
+  width: max-content;
+  background: #222222;
+  border-radius: 4px;
+  transition: all 250 ease-in-out;
+  cursor: pointer;
+}
+.c2a:hover{
+  background: #444444;
+}
+
+.right {
+  overflow: hidden;
+  clip-path: polygon(35% 0%, 100% 0, 100% 100%, 8% 100%); 
+  object-fit: cover;
+}
+
+/*  */
+@media screen and (max-width: 768px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+    width: 90vw;
+    height: auto;
+  }
+  .content-splitter {
+    gap: 1em;
+  }
+  .left {
+    gap: 2em;
+    padding: 0 2em;
+  }
+  .right {
+    display: none;
+  }
 }
 
     </style>
   </head>
   <body>
-<div class="cardContainer">
-     <div class="cardBox">
-         <div class="cardHeader">
-             <div class="circle"></div>
-             <img src="images/humans/self.jpg" alt="Adidas Shoes">
-         </div>
-         <div class="cardDetails">
-              Happiest Birthday Motu . I made all this as a birthday present to you. I wish the best for you and thanks for being there for me , thanks for the friendship we made, thanks for everything.
-  Enjoy every single moment that you experience today, fill it with your most beautiful smile and make it the best memory.
-         </div>
-     </div>
- </div>
-    <script>
-      const cardContainer = document.querySelector('.cardContainer');
-const cardBox = document.querySelector('.cardBox');
+<div id="home" class="first_page">
+  <div class="wrapper">
+    <div class="content-splitter">
+      <div class="nav">
+        <ul class="navbar">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Pricing</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="left">
+        <div class="block">
+          <div class="header">Hi, I'm Micheal</div>
+          <div class="content">I am a Freelance Designer and Photographer, each experience is for me a unique mean of growing as a person and delivering great content. (And this is some dummy text to fill more space.)</div>
+        </div>
+        <div class="c2a">Contact me!</div>
+      </div>
+    </div>
+    <div class="right">
+        <img src="https://images.unsplash.com/photo-1580707578919-892eb22db615?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTV8fG1hbiUyMHBvcnRyYWl0fGVufDB8fDB8fA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=400&q=60" alt="">
+      </div>
 
-const title = document.querySelector(".cardDetails h1");
-const info = document.querySelector(".cardDetails p");
-const sizes = document.querySelector(".cardDetails .sizes");
-const productImg = document.querySelector(".cardHeader img");
-
-// Event movement
-cardContainer.addEventListener('mousemove', (e) => {
-   let xPosition = (window.innerWidth / 2 - e.pageX) / 15;
-   let yPosition = (window.innerHeight / 2 - e.pageY) / 15;
-
-   cardBox.style.transform = "rotateX("+ xPosition +"deg) rotateY("+ yPosition +"deg)";
-});
-
-// Animation in
-cardContainer.addEventListener('mouseenter', (e) => {
-   cardBox.style.transition = "none";
-
-   title.style.transform = "translateZ(80px)";
-   info.style.transform = "translateZ(80px)";
-   sizes.style.transform = "translateZ(80px)";
-   productImg.style.transform = "translateZ(120px) rotate(-30deg)";
-});
-// Animation out
-cardContainer.addEventListener('mouseleave', (e) => {
-   cardBox.style.transform = "rotateX(0deg) rotateY(0deg)";
-   cardBox.style.transition = "all 0.5s ease";
-
-   title.style.transform = "translateZ(0px)";
-   info.style.transform = "translateZ(0px)";
-   sizes.style.transform = "translateZ(0px)";
-   productImg.style.transform = "translateZ(0px) rotate(0deg)";
-});
-    </script>
+  </div>
+</div>
+</div>
   </body>
   <html>

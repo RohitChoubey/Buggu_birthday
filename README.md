@@ -3,7 +3,7 @@ Made this as a birthday present for my friend.
 Sample screenshot of the application .
 ![GitHub Logo](/images/screenshots/sample.jpg)
 
-URL: (https://rohitchoubey.github.io/Deepika_Birthday/)
+URL: (https://rohitchoubey.github.io/Buggu_birthday/)
 
 Technology Used: Javascript, CSS3, HTML5
 
